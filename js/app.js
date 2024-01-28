@@ -30,14 +30,12 @@ mainEl.innerHTML = ('<h1>SEI Rocks!</h1>');
 mainEl.setAttribute('class', 'flex-ctr');
 
 // Task 2.0 - 2.3
-
 const topMenuEl = document.querySelector('#top-menu');
 topMenuEl.style.height = '100%'
 topMenuEl.style.backgroundColor = 'var(--top-menu-bg)';
 topMenuEl.setAttribute('class', 'flex-around');
 
 // Task 3.1
-
 const navEl = document.querySelector('#top-menu');
 menuLinks.forEach(function (link) {
   const aEl = document.createElement('a');
@@ -56,7 +54,6 @@ subMenuEl.style.position = 'absolute';
 subMenuEl.style.top = '0';
 
 // Task 5.1
-
 let showingSubMenu = false;
 
 // Task 5.2
@@ -85,7 +82,6 @@ topMenuEl.addEventListener('click', function (e) {
   link.classList.add('active');
 
   // Task 5.6
-
   const linkState = menuLinks.find(function (subLinkObj) {
     return subLinkObj.text === link.textContent;
   })
@@ -120,18 +116,18 @@ subMenuEl.addEventListener('click', function (e) {
     return
   }
   console.log()
+  
   // Task 6.1
   showingSubMenu = false
   subMenuEl.style.top = '0';
+
   //  Task 6.2
   topMenuLinks.forEach(link => {
     link.classList.remove('active');
   });
+
   // Task 6.3
   mainEl.innerHTML = (`<h1>${link.text}</h1>`)
 })
-
-
-
 
 const topMenuLinks = document.querySelectorAll('#top-menu a');
