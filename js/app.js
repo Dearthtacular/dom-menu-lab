@@ -81,11 +81,35 @@ topMenuEl.addEventListener('click', function (e) {
   // Task 5.5
   link.classList.add('active');
 
-  // Task 5.6
-  const linkState = menuLinks.find(function (subLinkObj) {
-    return subLinkObj.text === link.textContent;
-  })
-  showingSubMenu = 'subLinks' in linkState;
+  // // Task 5.6
+  // Below is the answer from the given solutions to the lab for 
+  // task 5.5.  I kinda admitted defeat and used it temporarily 
+  // in order to complete the rest of the lab.  I returned Monday 
+  // to retool the answer in a context that I understand better 
+  // (self-study with for loops a few years ago).  I now have a 
+  // better grasp on what the .find method was doing, and what
+  // is actually being returned to the variable linkState;  
+
+  // const linkState = menuLinks.find(function (subLinkObj) {
+  //   return subLinkObj.text === link.textContent;
+  // })
+  // showingSubMenu = 'subLinks' in linkState;
+
+  let linkState = null
+
+  for (let i = 0; i < menuLinks.length; i++) {
+    if (menuLinks[i].text === link.textContent) {
+      linkState = menuLinks[i];
+    };
+  };
+
+  if (linkState.subLinks) {
+    showingSubMenu = true
+  } else {
+    showingSubMenu = false
+  }
+
+  // showingSubMenu = 'subLinks' in linkState;
 
   // Task 5.7
   if (showingSubMenu) {
@@ -116,7 +140,7 @@ subMenuEl.addEventListener('click', function (e) {
     return
   }
   console.log()
-  
+
   // Task 6.1
   showingSubMenu = false
   subMenuEl.style.top = '0';
